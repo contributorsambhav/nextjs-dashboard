@@ -30,6 +30,8 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoices() {
   try {
+    console.log(process.env.DATABASE_URL); // Make sure this outputs correctly
+
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
       FROM invoices
